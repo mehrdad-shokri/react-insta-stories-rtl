@@ -1,5 +1,5 @@
 {
-	"name": "react-insta-stories",
+	"name": "react-insta-stories-rtl",
 	"version": "2.4.2",
 	"description": "A React component for Instagram like stories",
 	"main": "dist/index.js",
@@ -18,19 +18,19 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/mohitk05/react-insta-stories.git"
+		"url": "git+https://github.com:mehrdad-shokri/react-insta-stories-rtl.git"
 	},
 	"keywords": [
 		"stories",
 		"react",
 		"instagram"
 	],
-	"author": "mohitk05",
+	"author": "Mehrdad Shokri",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/mohitk05/react-insta-stories/issues"
+		"url": "https://github.com/mehrdad-shokri/react-insta-stories-rtl/issues"
 	},
-	"homepage": "https://github.com/mohitk05/react-insta-stories#readme",
+	"homepage": "https://github.com/mehrdad-shokri/react-insta-stories-rtl#readme",
 	"devDependencies": {
 		"@babel/core": "^7.5.5",
 		"@babel/preset-env": "^7.5.5",
