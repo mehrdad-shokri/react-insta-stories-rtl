@@ -34,7 +34,7 @@ const styles: any = {
         height: '100%',
         maxWidth: '100%',
         borderRadius: 2,
-        transformOrigin: 'center left',
+        transformOrigin: 'center right',
 
         WebkitBackfaceVisibility: 'hidden',
         MozBackfaceVisibility: 'hidden',
