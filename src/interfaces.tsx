@@ -43,6 +43,8 @@ export interface GlobalCtx {
     onStoryEnd?: Function;
     keyboardNavigation?: boolean;
     preventDefault?: boolean;
+    onNextStoriesSegment?: Function;
+    onPreviousStoriesSegment?: Function;
 }
 
 type NumberOrString = number | string;

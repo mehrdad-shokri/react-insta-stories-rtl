@@ -22,7 +22,7 @@ const styles = {
         marginRight: 10,
         filter: 'drop-shadow(0 0px 2px rgba(0, 0, 0, 0.5))',
         border: '2px solid rgba(255, 255, 255, 0.8)'
-    },
+},
     text: {
         display: 'flex',
         flexDirection: 'column',
