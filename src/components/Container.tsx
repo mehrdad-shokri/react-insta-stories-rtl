@@ -73,7 +73,10 @@ export default function () {
     const previous = () => {
         if(currentId > 0)
             setCurrentIdWrapper(prev => prev > 0 ? prev - 1 : prev)
-        else if(onPreviousStoriesSegment) onPreviousStoriesSegment()
+        else if(onPreviousStoriesSegment) {
+            onPreviousStoriesSegment();
+            toggleState('pause', true);
+        }
     }
 
     const next = () => {
@@ -87,16 +90,17 @@ export default function () {
     };
 
     const updateNextStoryIdForLoop = () => {
-        if(currentId > 0)
-            setCurrentIdWrapper(prev => (prev + 1) % stories.length)
-        else if(onNextStoriesSegment) onNextStoriesSegment()
+        setCurrentIdWrapper(prev => (prev + 1) % stories.length)
     }
 
     const updateNextStoryId = () => {
-        setCurrentIdWrapper(prev => {
-            if (prev < stories.length - 1) return prev + 1
-            return prev
-        })
+        if(currentId > 0) {
+            setCurrentIdWrapper(prev => {
+                if (prev < stories.length - 1) return prev + 1
+                return prev
+            })
+        }
+        else if(onNextStoriesSegment) onNextStoriesSegment()
     }
 
     const debouncePause = (e: React.MouseEvent | React.TouchEvent) => {
