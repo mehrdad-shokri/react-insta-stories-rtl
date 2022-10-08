@@ -21,6 +21,8 @@ export interface ReactInstaStoriesProps {
     onStoryEnd?: Function;
     keyboardNavigation?: boolean;
     preventDefault?: boolean;
+    onNextStorySegment?: Function;
+    onPreviousStoriesSegment?: Function;
 }
 
 export interface GlobalCtx {
