@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef, useEffect } from 'react'
+import React, { useContext, useState, useRef, useEffect, useMemo } from 'react'
 import GlobalContext from './../context/Global'
 import StoriesContext from './../context/Stories'
 import ProgressContext from './../context/Progress'
@@ -17,6 +17,7 @@ export default function () {
 
     const { width, height, loop, currentIndex, isPaused, keyboardNavigation, preventDefault, storyContainerStyles = {}, onNextStoriesSegment, onPreviousStoriesSegment  } = useContext<GlobalCtx>(GlobalContext);
     const { stories } = useContext<StoriesContextInterface>(StoriesContext);
+    const globalPause = useMemo(() => pause || isPaused, [pause, isPaused])
 
     useEffect(() => {
         if (typeof currentIndex === 'number') {
@@ -130,7 +131,7 @@ export default function () {
                 bufferAction: bufferAction,
                 videoDuration: videoDuration,
                 currentId,
-                pause: pause || isPaused,
+                pause: globalPause,
                 next
             }}>
                 <ProgressArray />
@@ -138,7 +139,7 @@ export default function () {
             <Story
                 action={toggleState}
                 bufferAction={bufferAction}
-                playState={pause}
+                playState={globalPause}
                 story={stories[currentId]}
                 getVideoDuration={getVideoDuration}
             />
