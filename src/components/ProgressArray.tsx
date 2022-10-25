@@ -17,7 +17,6 @@ export default () => {
 
     useEffect(() => {
         setCount(0)
-        storyStartCallback()
     }, [currentId, stories])
 
     useEffect(() => {
