@@ -130,7 +130,7 @@ export default function () {
                 bufferAction: bufferAction,
                 videoDuration: videoDuration,
                 currentId,
-                pause,
+                pause: pause || isPaused,
                 next
             }}>
                 <ProgressArray />
