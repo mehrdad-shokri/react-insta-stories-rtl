@@ -12,8 +12,8 @@ export default () => {
     const { stories } = useContext<StoriesContextInterface>(StoriesContext);
 
     useEffect(() => {
-        storyStartCallback()
-    }, [currentId])
+        if (countCopy === 0) storyStartCallback()
+    }, [count])
 
     useEffect(() => {
         setCount(0)
@@ -32,7 +32,6 @@ export default () => {
 
     let countCopy = count;
     const incrementCount = () => {
-        if (countCopy === 0) storyStartCallback()
         setCount((count: number) => {
             const interval = getCurrentInterval()
             countCopy = count + (100 / ((interval / 1000) * 60))
