@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef, useEffect, useMemo } from 'react'
+import React, { useContext, useState, useRef, useEffect } from 'react'
 import GlobalContext from './../context/Global'
 import StoriesContext from './../context/Stories'
 import ProgressContext from './../context/Progress'
@@ -130,7 +130,7 @@ export default function () {
                 bufferAction: bufferAction,
                 videoDuration: videoDuration,
                 currentId,
-                pause: pause || isPaused,
+                pause,
                 next
             }}>
                 <ProgressArray />
