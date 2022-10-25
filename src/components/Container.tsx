@@ -29,7 +29,6 @@ export default function () {
     }, [currentIndex])
 
     useEffect(() => {
-        console.log(`useEffect ${isPaused}`)
         if (typeof isPaused === 'boolean') {
             setPause(isPaused)
         }
@@ -62,8 +61,7 @@ export default function () {
     }
 
     const toggleState = (action: string, bufferAction?: boolean) => {
-        console.log(`toggleState ${action}`)
-        setPause(action === 'pause')
+        setPause(isPaused || action === 'pause')
         setBufferAction(!!bufferAction)
     }
 
