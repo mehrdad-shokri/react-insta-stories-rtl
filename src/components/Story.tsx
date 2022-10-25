@@ -53,4 +53,4 @@ const styles = {
 	}
 };
 
-export default Story;
+export default React.memo(Story);

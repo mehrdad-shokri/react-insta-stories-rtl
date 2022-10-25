@@ -139,7 +139,7 @@ export default function () {
             <Story
                 action={toggleState}
                 bufferAction={bufferAction}
-                playState={pause}
+                playState={globalPause}
                 story={stories[currentId]}
                 getVideoDuration={getVideoDuration}
             />
