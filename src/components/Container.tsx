@@ -61,7 +61,7 @@ export default function () {
     }
 
     const toggleState = (action: string, bufferAction?: boolean) => {
-        setPause(action === 'pause')
+        setPause(isPaused || action === 'pause')
         setBufferAction(!!bufferAction)
     }
 
