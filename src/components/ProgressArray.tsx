@@ -12,6 +12,10 @@ export default () => {
     const { stories } = useContext<StoriesContextInterface>(StoriesContext);
 
     useEffect(() => {
+        storyStartCallback()
+    }, [currentId])
+
+    useEffect(() => {
         setCount(0)
         storyStartCallback()
     }, [currentId, stories])
