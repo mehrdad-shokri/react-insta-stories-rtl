@@ -17,7 +17,6 @@ export default function () {
 
     const { width, height, loop, currentIndex, isPaused, keyboardNavigation, preventDefault, storyContainerStyles = {}, onNextStoriesSegment, onPreviousStoriesSegment  } = useContext<GlobalCtx>(GlobalContext);
     const { stories } = useContext<StoriesContextInterface>(StoriesContext);
-    const globalPause = useMemo(() => pause || isPaused, [pause, isPaused])
 
     useEffect(() => {
         if (typeof currentIndex === 'number') {
@@ -30,6 +29,7 @@ export default function () {
     }, [currentIndex])
 
     useEffect(() => {
+        console.log(`useEffect ${isPaused}`)
         if (typeof isPaused === 'boolean') {
             setPause(isPaused)
         }
@@ -62,7 +62,8 @@ export default function () {
     }
 
     const toggleState = (action: string, bufferAction?: boolean) => {
-        setPause(isPaused || action === 'pause')
+        console.log(`toggleState ${action}`)
+        setPause(action === 'pause')
         setBufferAction(!!bufferAction)
     }
 
@@ -131,7 +132,7 @@ export default function () {
                 bufferAction: bufferAction,
                 videoDuration: videoDuration,
                 currentId,
-                pause: globalPause,
+                pause,
                 next
             }}>
                 <ProgressArray />
@@ -139,7 +140,7 @@ export default function () {
             <Story
                 action={toggleState}
                 bufferAction={bufferAction}
-                playState={globalPause}
+                playState={pause}
                 story={stories[currentId]}
                 getVideoDuration={getVideoDuration}
             />
