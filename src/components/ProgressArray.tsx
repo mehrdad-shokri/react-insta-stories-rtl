@@ -7,10 +7,22 @@ import StoriesContext from './../context/Stories'
 
 export default () => {
     const [count, setCount] = useState<number>(0)
+    const [observedStoryStart, setObservedStoryStart] = useState(false)
     const { currentId, next, videoDuration, pause } = useContext<ProgressContext>(ProgressCtx)
     const { defaultInterval, onStoryEnd, onStoryStart, onAllStoriesEnd } = useContext<GlobalCtx>(GlobalContext);
     const { stories } = useContext<StoriesContextInterface>(StoriesContext);
 
+    useEffect(()=>{
+        if(count === 0) {
+            if(!observedStoryStart) {
+                setObservedStoryStart(true)
+                storyStartCallback()
+            }
+        }
+        else {
+            setObservedStoryStart(false)
+        }
+    },[count])
     useEffect(() => {
         setCount(0)
     }, [currentId, stories])
@@ -28,7 +40,6 @@ export default () => {
 
     let countCopy = count;
     const incrementCount = () => {
-        if (countCopy === 0) storyStartCallback()
         setCount((count: number) => {
             const interval = getCurrentInterval()
             countCopy = count + (100 / ((interval / 1000) * 60))
