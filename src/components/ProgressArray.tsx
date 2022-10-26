@@ -13,6 +13,7 @@ export default () => {
     const { stories } = useContext<StoriesContextInterface>(StoriesContext);
 
     useEffect(()=>{
+        console.log(`count changed ${count} ${observedStoryStart}`)
         if(count === 0) {
             if(!observedStoryStart) {
                 setObservedStoryStart(true)
@@ -22,7 +23,7 @@ export default () => {
         else {
             setObservedStoryStart(false)
         }
-    },[count])
+    },[count, observedStoryStart])
     useEffect(() => {
         setCount(0)
     }, [currentId, stories])
