@@ -20,11 +20,9 @@ export default () => {
                 storyStartCallback()
             }
         }
-        else {
-            setObservedStoryStart(false)
-        }
     },[count, observedStoryStart])
     useEffect(() => {
+        setObservedStoryStart(false)
         setCount(0)
     }, [currentId, stories])
 
