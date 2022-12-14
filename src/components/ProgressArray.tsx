@@ -101,6 +101,6 @@ const styles = {
         paddingTop: 16,
         alignSelf: 'center',
         zIndex: 1001,
-        filter: 'drop-shadow(0 1px 8px #222)'
+        borderRadius: 2
     }
 }
