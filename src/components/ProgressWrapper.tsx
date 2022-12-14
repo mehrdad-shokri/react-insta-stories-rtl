@@ -19,7 +19,9 @@ const styles = {
         background: 'rgba(255, 255, 255, 0.32)',
         margin: 2,
         borderRadius: 2,
-        transition: 'opacity 400ms ease-in-out'
+        transition: 'opacity 400ms ease-in-out',
+        boxShadow: 'none',
+        filter: 'none'
     }
 }
 
