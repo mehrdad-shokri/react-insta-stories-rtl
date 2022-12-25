@@ -11,7 +11,7 @@ export default function () {
     const [pause, setPause] = useState<boolean>(true)
     const [bufferAction, setBufferAction] = useState<boolean>(true)
     const [videoDuration, setVideoDuration] = useState<number>(0)
-
+    const [clickDownTime, setClickDownTime] = useState<number>(-1);
     let mousedownId = useRef<any>();
     let isMounted = useRef<boolean>(true);
 
@@ -104,23 +104,19 @@ export default function () {
     }
 
     const debouncePause = (e: React.MouseEvent | React.TouchEvent) => {
-        console.log('debounce pause')
-        console.log(e)
         e.preventDefault()
+        setClickDownTime((new Date).getTime())
         mousedownId.current = setTimeout(() => {
             toggleState('pause')
         }, 200)
     }
 
     const mouseUp = (type: string) => (e: React.MouseEvent | React.TouchEvent) => {
-        console.log('mouseUp')
-        console.log(e)
-        console.log(pause)
         e.preventDefault()
         mousedownId.current && clearTimeout(mousedownId.current)
         if (pause) {
             toggleState('play')
-        } else {
+        } else if((new Date).getTime() - clickDownTime >= 5) {
             type === 'next' ? next() : previous()
         }
     }
