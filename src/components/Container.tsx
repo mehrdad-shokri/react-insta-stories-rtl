@@ -104,6 +104,8 @@ export default function () {
     }
 
     const debouncePause = (e: React.MouseEvent | React.TouchEvent) => {
+        console.log('debounce pause')
+        console.log(e)
         e.preventDefault()
         mousedownId.current = setTimeout(() => {
             toggleState('pause')
@@ -111,6 +113,9 @@ export default function () {
     }
 
     const mouseUp = (type: string) => (e: React.MouseEvent | React.TouchEvent) => {
+        console.log('mouseUp')
+        console.log(e)
+        console.log(pause)
         e.preventDefault()
         mousedownId.current && clearTimeout(mousedownId.current)
         if (pause) {
